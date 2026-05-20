@@ -20,12 +20,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: aws-actions/configure-aws-credentials@v4
-        with:
-          role-to-assume: arn:aws:iam::871939031886:role/oicd-model
-          aws-region: us-east-1
-          audience: sts.amazonaws.com
-
       - uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: ${{ env.TF_VERSION }}
@@ -39,11 +33,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: aws-actions/configure-aws-credentials@v4
-        with:
-          role-to-assume: arn:aws:iam::871939031886:role/oicd-model
-          aws-region: us-east-1
-          audience: sts.amazonaws.com
+
       - uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: ${{ env.TF_VERSION }}
@@ -85,12 +75,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: aws-actions/configure-aws-credentials@v4
-        with:
-          role-to-assume: arn:aws:iam::871939031886:role/oicd-model
-          aws-region: us-east-1
-          audience: sts.amazonaws.com
-
       - name: Run tfsec
         uses: aquasecurity/tfsec-action@v1.0.3
         with:
@@ -102,12 +86,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-
-      - uses: aws-actions/configure-aws-credentials@v4
-        with:
-          role-to-assume: arn:aws:iam::871939031886:role/oicd-model
-          aws-region: us-east-1
-          audience: sts.amazonaws.com
 
       - name: Run Checkov
         uses: bridgecrewio/checkov-action@master
@@ -122,12 +100,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-
-      - uses: aws-actions/configure-aws-credentials@v4
-        with:
-          role-to-assume: arn:aws:iam::871939031886:role/oicd-model
-          aws-region: us-east-1
-          audience: sts.amazonaws.com
 
       - uses: hashicorp/setup-terraform@v3
         with:
